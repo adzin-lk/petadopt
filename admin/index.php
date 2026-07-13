@@ -132,8 +132,8 @@ $result = @mysqli_query($koneksi, $query);
                                             $badgeClass = 'bg-amber-50 text-amber-600 border-amber-200';
                                         }
 
-                                        $nama = isset($row['nama']) ? $row['nama'] : 'Tanpa Nama';
-                                        $spesies = isset($row['spesies']) ? $row['spesies'] : 'Tidak diketahui';
+                                        $nama = isset($row['nama_hewan']) ? $row['nama_hewan'] : 'Tanpa Nama';
+                                        $spesies = isset($row['jenis_hewan']) ? $row['jenis_hewan'] : 'Tidak diketahui';
                                         $ras = isset($row['ras']) ? $row['ras'] : '-';
 
                                         echo "<tr class='hover:bg-[#FAF8F5]/50 transition-colors group'>
