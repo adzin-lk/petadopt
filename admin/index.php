@@ -103,6 +103,7 @@ $result = @mysqli_query($koneksi, $query);
                                     <th class="px-6 py-5 font-semibold">Nama Hewan</th>
                                     <th class="px-6 py-5 font-semibold">Spesies / Ras</th>
                                     <th class="px-6 py-5 font-semibold">Tanggal Masuk</th>
+                                    <th class="px-6 py-5 font-semibold">Deskripsi</th>
                                     <th class="px-6 py-5 font-semibold">Status</th>
                                     <th class="px-6 py-5 font-semibold text-right">Aksi</th>
                                 </tr>
@@ -123,7 +124,7 @@ $result = @mysqli_query($koneksi, $query);
                                         }
 
                                         // Mock status jika tidak ada di DB
-                                        $status = isset($row['status']) ? $row['status'] : 'Tersedia';
+                                        $status = isset($row['status_adopsi']) ? $row['status_adopsi'] : 'Tersedia';
                                         
                                         // Tentukan warna badge berdasarkan status
                                         if (strtolower($status) == 'teradopsi') {
@@ -148,6 +149,9 @@ $result = @mysqli_query($koneksi, $query);
                                                 <td class='px-6 py-4 text-gray-600 flex items-center gap-2'>
                                                     <i class='far fa-calendar-alt text-gray-400'></i> {$tanggal_masuk_format}
                                                 </td>
+                                                <td class='px-6 py-4 text-sm text-gray-600 max-w-xs truncate' title='" . htmlspecialchars(isset($row['deskripsi']) ? $row['deskripsi'] : '') . "'>
+                                                    " . htmlspecialchars(isset($row['deskripsi']) ? $row['deskripsi'] : '-') . "
+                                                </td>
                                                 <td class='px-6 py-4'>
                                                     <span class='px-3 py-1 rounded-full text-xs font-semibold border {$badgeClass}'>
                                                         {$status}
@@ -156,11 +160,11 @@ $result = @mysqli_query($koneksi, $query);
                                                 <td class='px-6 py-4'>
                                                     <div class='flex items-center justify-end gap-3 opacity-80 group-hover:opacity-100 transition-opacity'>
                                                         <!-- Tombol Edit -->
-                                                        <a href='edit.php?id=" . (isset($row['id_hewan']) ? $row['id_hewan'] : '') . "' class='w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors shadow-sm' title='Edit Data'>
+                                                        <a href='edit.php?id_hewan=" . (isset($row['id_hewan']) ? $row['id_hewan'] : '') . "' class='w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors shadow-sm' title='Edit Data'>
                                                             <i class='fas fa-pen text-xs'></i>
                                                         </a>
                                                         <!-- Tombol Hapus -->
-                                                        <a href='hapus.php?id=" . (isset($row['id_hewan']) ? $row['id_hewan'] : '') . "' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini?\")' class='w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors shadow-sm' title='Hapus Data'>
+                                                        <a href='hapus.php?id_hewan=" . (isset($row['id_hewan']) ? $row['id_hewan'] : '') . "' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini?\")' class='w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors shadow-sm' title='Hapus Data'>
                                                             <i class='fas fa-trash text-xs'></i>
                                                         </a>
                                                     </div>

@@ -66,6 +66,75 @@ if (isset($_POST['aksi']) && $_POST['aksi'] == 'tambah') {
         echo "Error saat menyimpan data: " . mysqli_error($koneksi);
         exit;
     }
+} else if (isset($_POST['aksi']) && $_POST['aksi'] == 'edit') {
+    // Ambil data form
+    $id_hewan = mysqli_real_escape_string($koneksi, $_POST['id_hewan']);
+    $nama_hewan = mysqli_real_escape_string($koneksi, $_POST['nama_hewan']);
+    $jenis_hewan = mysqli_real_escape_string($koneksi, $_POST['jenis_hewan']);
+    $ras = mysqli_real_escape_string($koneksi, $_POST['ras']);
+    $tanggal_lahir = mysqli_real_escape_string($koneksi, $_POST['tanggal_lahir']);
+    $tanggal_masuk = mysqli_real_escape_string($koneksi, $_POST['tanggal_masuk']);
+    $deskripsi = mysqli_real_escape_string($koneksi, $_POST['deskripsi']);
+    $status_adopsi = mysqli_real_escape_string($koneksi, $_POST['status_adopsi']); // Menangkap data status_adopsi
+    $foto_lama = mysqli_real_escape_string($koneksi, $_POST['foto_lama']);
+    
+    // Secara default, foto_name menggunakan nama foto lama jika tidak ada upload baru
+    $foto_name = $foto_lama;
+
+    // Proses unggah foto baru jika user memilih file baru
+    if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
+        $allowed_ext = array('png', 'jpg', 'jpeg');
+        $file_name = $_FILES['foto']['name'];
+        $file_size = $_FILES['foto']['size'];
+        $file_tmp = $_FILES['foto']['tmp_name'];
+        
+        $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+        
+        if (in_array($file_ext, $allowed_ext)) {
+            if ($file_size <= 2097152) { // Maksimal 2MB
+                $new_file_name = time() . '_' . rand(1000, 9999) . '.' . $file_ext;
+                $upload_path = '../assets/uploads/';
+                
+                if (!is_dir($upload_path)) {
+                    mkdir($upload_path, 0777, true);
+                }
+                
+                if (move_uploaded_file($file_tmp, $upload_path . $new_file_name)) {
+                    $foto_name = $new_file_name;
+                    // Hapus file foto lama agar menghemat space
+                    if (!empty($foto_lama) && file_exists($upload_path . $foto_lama)) {
+                        unlink($upload_path . $foto_lama);
+                    }
+                }
+            } else {
+                echo "<script>alert('Gagal! Ukuran file foto melebihi batas maksimal 2MB.'); window.history.back();</script>";
+                exit;
+            }
+        } else {
+            echo "<script>alert('Gagal! Ekstensi file tidak valid. Hanya izinkan PNG, JPG, dan JPEG.'); window.history.back();</script>";
+            exit;
+        }
+    }
+
+    // Eksekusi query UPDATE ke database
+    $query = "UPDATE hewan SET 
+                nama_hewan = '$nama_hewan', 
+                jenis_hewan = '$jenis_hewan', 
+                ras = '$ras', 
+                tanggal_lahir = '$tanggal_lahir', 
+                tanggal_masuk = '$tanggal_masuk', 
+                deskripsi = '$deskripsi', 
+                status_adopsi = '$status_adopsi',
+                foto = '$foto_name' 
+              WHERE id_hewan = '$id_hewan'";
+              
+    if (mysqli_query($koneksi, $query)) {
+        header("Location: index.php");
+        exit;
+    } else {
+        echo "Error saat mengupdate data: " . mysqli_error($koneksi);
+        exit;
+    }
 } else {
     // Jika ada yang mencoba mengakses file ini secara langsung tanpa melewati form
     header("Location: index.php");
