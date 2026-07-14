@@ -1,5 +1,5 @@
 <?php
-session_start();
+include 'cek_login.php';
 // Wajib menggunakan koneksi yang sudah ada (variabel $koneksi)
 require_once '../config/koneksi.php';
 

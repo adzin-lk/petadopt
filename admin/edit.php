@@ -1,5 +1,5 @@
 <?php
-session_start();
+include 'cek_login.php';
 require_once '../config/koneksi.php';
 
 // Cek apakah parameter id_hewan ada di URL

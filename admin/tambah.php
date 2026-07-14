@@ -1,5 +1,6 @@
 <?php
-session_start();
+include 'cek_login.php';
+require_once '../config/koneksi.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">

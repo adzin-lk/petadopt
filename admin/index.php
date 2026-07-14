@@ -1,5 +1,5 @@
 <?php
-session_start();
+include 'cek_login.php';
 
 // Panggil file koneksi database dan autoload dari Composer
 require_once '../config/koneksi.php';
