@@ -31,6 +31,13 @@ $result = @mysqli_query($koneksi, $query);
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        .bg-architect-grid {
+            background-color: #FAF8F5 !important;
+            background-image: 
+                linear-gradient(rgba(30, 63, 32, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 63, 32, 0.06) 1px, transparent 1px) !important;
+            background-size: 80px 80px !important;
+        }
     </style>
 </head>
 <body class="bg-[#FAF8F5] text-gray-800 flex flex-col min-h-screen">
@@ -75,9 +82,9 @@ $result = @mysqli_query($koneksi, $query);
     </nav>
 
     <!-- Main Content Area -->
-    <main class="flex-1 w-full bg-[#FAF8F5]">
+    <main class="flex-1 w-full relative min-h-screen overflow-hidden bg-[#FAF8F5] bg-architect-grid">
         <!-- Content Area -->
-        <div class="w-full p-6 lg:p-10">
+        <div class="w-full p-6 lg:p-10 relative z-10">
             <div class="max-w-7xl mx-auto">
                 
                 <!-- Page Header -->
