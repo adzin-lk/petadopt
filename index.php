@@ -306,5 +306,75 @@ $result_hewan = @mysqli_query($koneksi, $query_hewan);
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="bg-[#1E3F20] pt-20 pb-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <!-- Kolom 1 -->
+                <div>
+                    <a href="index.php" class="flex items-center gap-2 mb-6 group">
+                        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white group-hover:bg-white/20 transition-colors">
+                            <i class="fas fa-paw text-xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-extrabold tracking-tight text-white">PetAdopt<span class="text-[#E07A5F]">.</span></h2>
+                    </a>
+                    <p class="text-gray-300 leading-relaxed text-sm">
+                        Platform inovatif yang menjembatani kasih sayang. Kami membantu menemukan rumah impian untuk hewan peliharaan yang membutuhkan perhatian dan kehangatan keluarga.
+                    </p>
+                </div>
+                
+                <!-- Kolom 2 -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-6 tracking-wide">Quick Links</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#beranda" class="text-gray-300 hover:text-[#E07A5F] transition-colors text-sm font-medium flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Beranda</a></li>
+                        <li><a href="#katalog" class="text-gray-300 hover:text-[#E07A5F] transition-colors text-sm font-medium flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Katalog Adopsi</a></li>
+                        <li><a href="#tentang-kami" class="text-gray-300 hover:text-[#E07A5F] transition-colors text-sm font-medium flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Tentang Kami</a></li>
+                        <li><a href="admin/" class="text-gray-300 hover:text-[#E07A5F] transition-colors text-sm font-medium flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Portal Admin</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Kolom 3 -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-6 tracking-wide">Hubungi Kami</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-[#E07A5F] shrink-0"><i class="fas fa-map-marker-alt"></i></div>
+                            <p class="text-gray-300 text-sm mt-2">Jl. Cinta Hewan No. 123, Jakarta Selatan, Indonesia</p>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-[#E07A5F] shrink-0"><i class="fas fa-envelope"></i></div>
+                            <p class="text-gray-300 text-sm">hello@petadopt.id</p>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-[#E07A5F] shrink-0"><i class="fab fa-instagram"></i></div>
+                            <p class="text-gray-300 text-sm">@petadopt_id</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-400 text-xs font-medium">© 2026 PetAdopt. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-xs">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-xs">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281227884330?text=Halo%20Admin%20PetAdopt,%20saya%20ingin%20bertanya%20mengenai%20informasi%20adopsi%20hewan." target="_blank" class="fixed bottom-6 right-6 z-50 flex items-center space-x-2 group">
+        <!-- Badge Teks -->
+        <div class="px-4 py-2 bg-[#1E3F20] text-white text-sm font-semibold rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300 pointer-events-none border border-white/20">
+            Admin Rumah Hewan
+        </div>
+        <!-- Ikon Bulat -->
+        <div class="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-transform duration-300">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </div>
+    </a>
+
 </body>
 </html>
