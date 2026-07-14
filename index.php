@@ -61,6 +61,13 @@ $result_hewan = @mysqli_query($koneksi, $query_hewan);
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        @keyframes catChase {
+            0% { transform: translateX(-20%); }
+            100% { transform: translateX(110vw); }
+        }
+        .animate-cat-1 { animation: catChase 14s linear infinite; }
+        .animate-cat-2 { animation: catChase 14s linear infinite; animation-delay: 2.5s; }
+        .animate-cat-3 { animation: catChase 14s linear infinite; animation-delay: 5s; }
     </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
@@ -102,6 +109,54 @@ $result_hewan = @mysqli_query($koneksi, $query_hewan);
 
     <!-- Hero Section -->
     <section id="beranda" class="bg-[#FAF8F5] relative overflow-hidden">
+        <!-- Container Jalur Lari Kucing (Sekarang Mengambang di Hero) -->
+        <div class="absolute top-2 left-0 w-full overflow-hidden h-12 bg-transparent pointer-events-none z-20 flex items-center">
+            <!-- Kucing 1 -->
+            <div class="absolute animate-cat-1 flex items-center text-[#1E3F20] opacity-70">
+                <svg class="w-10 h-8" viewBox="0 0 30 20" fill="currentColor">
+                    <path d="M4,11 C1,11 1,5 3,3 C3.5,2.5 4,3 3.5,3.5 C2,5 2,9 4,9 Z" /> <!-- Ekor -->
+                    <ellipse cx="12" cy="11" rx="6" ry="4" /> <!-- Badan -->
+                    <rect x="7" y="14" width="1.5" height="4" rx="0.5" /> <!-- Kaki 1 -->
+                    <rect x="9.5" y="14" width="1.5" height="4" rx="0.5" /> <!-- Kaki 2 -->
+                    <rect x="13" y="14" width="1.5" height="4" rx="0.5" /> <!-- Kaki 3 -->
+                    <rect x="15.5" y="14" width="1.5" height="4" rx="0.5" /> <!-- Kaki 4 -->
+                    <circle cx="18" cy="8" r="3.5" /> <!-- Kepala -->
+                    <polygon points="15,6 15,2 17.5,5" /> <!-- Telinga L -->
+                    <polygon points="18.5,5 21,2 21,6" /> <!-- Telinga R -->
+                </svg>
+                <span class="text-xs font-semibold ml-1">🐾</span>
+            </div>
+            <!-- Kucing 2 (Mengejar) -->
+            <div class="absolute animate-cat-2 flex items-center text-[#1E3F20] opacity-70">
+                <svg class="w-10 h-8" viewBox="0 0 30 20" fill="currentColor">
+                    <path d="M4,11 C1,11 1,5 3,3 C3.5,2.5 4,3 3.5,3.5 C2,5 2,9 4,9 Z" />
+                    <ellipse cx="12" cy="11" rx="6" ry="4" />
+                    <rect x="7" y="14" width="1.5" height="4" rx="0.5" />
+                    <rect x="9.5" y="14" width="1.5" height="4" rx="0.5" />
+                    <rect x="13" y="14" width="1.5" height="4" rx="0.5" />
+                    <rect x="15.5" y="14" width="1.5" height="4" rx="0.5" />
+                    <circle cx="18" cy="8" r="3.5" />
+                    <polygon points="15,6 15,2 17.5,5" />
+                    <polygon points="18.5,5 21,2 21,6" />
+                </svg>
+            </div>
+            <!-- Kucing 3 (Paling Belakang) -->
+            <div class="absolute animate-cat-3 flex items-center text-[#E07A5F] opacity-80">
+                <svg class="w-10 h-8" viewBox="0 0 30 20" fill="currentColor">
+                    <path d="M4,11 C1,11 1,5 3,3 C3.5,2.5 4,3 3.5,3.5 C2,5 2,9 4,9 Z" />
+                    <ellipse cx="12" cy="11" rx="6" ry="4" />
+                    <rect x="7" y="14" width="1.5" height="4" rx="0.5" />
+                    <rect x="9.5" y="14" width="1.5" height="4" rx="0.5" />
+                    <rect x="13" y="14" width="1.5" height="4" rx="0.5" />
+                    <rect x="15.5" y="14" width="1.5" height="4" rx="0.5" />
+                    <circle cx="18" cy="8" r="3.5" />
+                    <polygon points="15,6 15,2 17.5,5" />
+                    <polygon points="18.5,5 21,2 21,6" />
+                </svg>
+                <span class="text-xs font-semibold ml-1">meow!</span>
+            </div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-24 lg:pt-32 lg:pb-32 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                 
