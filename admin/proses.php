@@ -135,6 +135,32 @@ if (isset($_POST['aksi']) && $_POST['aksi'] == 'tambah') {
         echo "Error saat mengupdate data: " . mysqli_error($koneksi);
         exit;
     }
+} else if (isset($_GET['aksi']) && $_GET['aksi'] == 'hapus') {
+    $id_hewan = mysqli_real_escape_string($koneksi, $_GET['id_hewan']);
+    
+    // Ambil data foto
+    $query_foto = "SELECT foto FROM hewan WHERE id_hewan = '$id_hewan'";
+    $result_foto = mysqli_query($koneksi, $query_foto);
+    
+    if ($row_foto = mysqli_fetch_assoc($result_foto)) {
+        $foto_lama = $row_foto['foto'];
+        if (!empty($foto_lama)) {
+            $path_foto = '../assets/uploads/' . $foto_lama;
+            if (file_exists($path_foto)) {
+                unlink($path_foto);
+            }
+        }
+    }
+    
+    // Delete data dari database
+    $query = "DELETE FROM hewan WHERE id_hewan = '$id_hewan'";
+    if (mysqli_query($koneksi, $query)) {
+        header("Location: index.php");
+        exit;
+    } else {
+        echo "Error saat menghapus data: " . mysqli_error($koneksi);
+        exit;
+    }
 } else {
     // Jika ada yang mencoba mengakses file ini secara langsung tanpa melewati form
     header("Location: index.php");

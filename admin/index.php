@@ -164,7 +164,7 @@ $result = @mysqli_query($koneksi, $query);
                                                             <i class='fas fa-pen text-xs'></i>
                                                         </a>
                                                         <!-- Tombol Hapus -->
-                                                        <a href='hapus.php?id_hewan=" . (isset($row['id_hewan']) ? $row['id_hewan'] : '') . "' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini?\")' class='w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors shadow-sm' title='Hapus Data'>
+                                                        <a href='proses.php?aksi=hapus&id_hewan=" . (isset($row['id_hewan']) ? $row['id_hewan'] : '') . "' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini?\")' class='w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors shadow-sm' title='Hapus Data'>
                                                             <i class='fas fa-trash text-xs'></i>
                                                         </a>
                                                     </div>
