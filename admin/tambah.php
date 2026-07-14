@@ -84,7 +84,7 @@ session_start();
                             <input type="text" id="nama" name="nama_hewan" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#1E3F20] focus:ring-2 focus:ring-[#1E3F20]/20 transition-all outline-none" placeholder="Masukkan nama hewan peliharaan">
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <!-- Jenis Hewan -->
                             <div>
                                 <label for="spesies" class="block text-sm font-semibold text-gray-700 mb-2">Jenis Hewan</label>
@@ -101,6 +101,12 @@ session_start();
                             <div>
                                 <label for="ras" class="block text-sm font-semibold text-gray-700 mb-2">Ras</label>
                                 <input type="text" id="ras" name="ras" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#1E3F20] focus:ring-2 focus:ring-[#1E3F20]/20 transition-all outline-none" placeholder="Contoh: Persia, Golden Retriever">
+                            </div>
+
+                            <!-- Lokasi Hewan -->
+                            <div>
+                                <label for="lokasi" class="block text-sm font-semibold text-gray-700 mb-2">Lokasi Hewan</label>
+                                <input type="text" id="lokasi" name="lokasi" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#1E3F20] focus:ring-2 focus:ring-[#1E3F20]/20 transition-all outline-none" placeholder="Contoh: Yogyakarta, Indonesia">
                             </div>
                         </div>
 

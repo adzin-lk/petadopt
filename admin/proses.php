@@ -11,6 +11,7 @@ if (isset($_POST['aksi']) && $_POST['aksi'] == 'tambah') {
     $nama_hewan = mysqli_real_escape_string($koneksi, $_POST['nama_hewan']);
     $jenis_hewan = mysqli_real_escape_string($koneksi, $_POST['jenis_hewan']);
     $ras = mysqli_real_escape_string($koneksi, $_POST['ras']);
+    $lokasi = mysqli_real_escape_string($koneksi, $_POST['lokasi']);
     $tanggal_lahir = mysqli_real_escape_string($koneksi, $_POST['tanggal_lahir']);
     $tanggal_masuk = mysqli_real_escape_string($koneksi, $_POST['tanggal_masuk']);
     $deskripsi = mysqli_real_escape_string($koneksi, $_POST['deskripsi']);
@@ -54,8 +55,8 @@ if (isset($_POST['aksi']) && $_POST['aksi'] == 'tambah') {
     }
 
     // Eksekusi query INSERT ke database menggunakan variabel $koneksi
-    $query = "INSERT INTO hewan (nama_hewan, jenis_hewan, ras, tanggal_lahir, tanggal_masuk, deskripsi, foto) 
-              VALUES ('$nama_hewan', '$jenis_hewan', '$ras', '$tanggal_lahir', '$tanggal_masuk', '$deskripsi', '$foto_name')";
+    $query = "INSERT INTO hewan (nama_hewan, jenis_hewan, ras, lokasi, tanggal_lahir, tanggal_masuk, deskripsi, foto) 
+              VALUES ('$nama_hewan', '$jenis_hewan', '$ras', '$lokasi', '$tanggal_lahir', '$tanggal_masuk', '$deskripsi', '$foto_name')";
               
     if (mysqli_query($koneksi, $query)) {
         // Jika berhasil, redirect ke halaman utama admin
@@ -72,6 +73,7 @@ if (isset($_POST['aksi']) && $_POST['aksi'] == 'tambah') {
     $nama_hewan = mysqli_real_escape_string($koneksi, $_POST['nama_hewan']);
     $jenis_hewan = mysqli_real_escape_string($koneksi, $_POST['jenis_hewan']);
     $ras = mysqli_real_escape_string($koneksi, $_POST['ras']);
+    $lokasi = mysqli_real_escape_string($koneksi, $_POST['lokasi']);
     $tanggal_lahir = mysqli_real_escape_string($koneksi, $_POST['tanggal_lahir']);
     $tanggal_masuk = mysqli_real_escape_string($koneksi, $_POST['tanggal_masuk']);
     $deskripsi = mysqli_real_escape_string($koneksi, $_POST['deskripsi']);
@@ -121,6 +123,7 @@ if (isset($_POST['aksi']) && $_POST['aksi'] == 'tambah') {
                 nama_hewan = '$nama_hewan', 
                 jenis_hewan = '$jenis_hewan', 
                 ras = '$ras', 
+                lokasi = '$lokasi',
                 tanggal_lahir = '$tanggal_lahir', 
                 tanggal_masuk = '$tanggal_masuk', 
                 deskripsi = '$deskripsi', 
