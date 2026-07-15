@@ -61,6 +61,13 @@ $result_hewan = @mysqli_query($koneksi, $query_hewan);
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        .bg-architect-grid {
+            background-color: #FAF8F5 !important;
+            background-size: 100px 100px;
+            background-image: 
+                linear-gradient(to right, rgba(30, 63, 32, 0.09) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(30, 63, 32, 0.09) 1px, transparent 1px) !important;
+        }
         @keyframes catChase {
             0% { transform: translateX(-20%); }
             100% { transform: translateX(110vw); }
@@ -89,7 +96,7 @@ $result_hewan = @mysqli_query($koneksi, $query_hewan);
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#beranda" class="text-sm font-semibold text-[#1E3F20] hover:text-[#E07A5F] transition-colors">Beranda</a>
-                    <a href="#adopsi" class="text-sm font-medium text-gray-500 hover:text-[#1E3F20] transition-colors">Adopsi</a>
+                    <a href="#katalog" class="text-sm font-medium text-gray-500 hover:text-[#1E3F20] transition-colors">Adopsi</a>
                     <a href="#tentang-kami" class="text-sm font-medium text-gray-500 hover:text-[#1E3F20] transition-colors">Tentang Kami</a>
                     <div class="h-6 w-px bg-gray-200 mx-2"></div>
                     <a href="admin/" class="px-5 py-2.5 rounded-full text-sm font-semibold text-[#1E3F20] border-2 border-[#1E3F20] hover:bg-[#1E3F20] hover:text-white transition-all duration-300 flex items-center gap-2">
@@ -270,7 +277,7 @@ $result_hewan = @mysqli_query($koneksi, $query_hewan);
     </section>
 
     <!-- Section Katalog Hewan -->
-    <section id="katalog" class="py-24 bg-[#FAF8F5] relative z-20">
+    <section id="katalog" class="py-24 bg-white relative z-20 bg-architect-grid">
         <div class="max-w-7xl mx-auto px-6 lg:px-10">
             
             <div class="text-center max-w-3xl mx-auto mb-12">
