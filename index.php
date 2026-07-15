@@ -296,9 +296,6 @@ $result_hewan = @mysqli_query($koneksi, $query_hewan);
                 <a href="index.php?kategori=Anjing#katalog" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 <?php echo ($kategori_aktif == 'Anjing') ? 'bg-[#1E3F20] text-white shadow-md' : 'bg-white text-gray-600 border border-gray-200 hover:border-[#1E3F20] hover:text-[#1E3F20]'; ?>">
                     Anjing
                 </a>
-                <a href="index.php?kategori=Kelinci#katalog" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 <?php echo ($kategori_aktif == 'Kelinci') ? 'bg-[#1E3F20] text-white shadow-md' : 'bg-white text-gray-600 border border-gray-200 hover:border-[#1E3F20] hover:text-[#1E3F20]'; ?>">
-                    Kelinci
-                </a>
             </div>
 
             <!-- Grid Card Hewan -->
