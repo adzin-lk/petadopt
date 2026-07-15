@@ -93,11 +93,20 @@ $result = @mysqli_query($koneksi, $query);
                         <h2 class="text-3xl font-bold text-gray-800 tracking-tight">Data Hewan</h2>
                         <p class="text-gray-500 mt-2 text-sm md:text-base">Kelola daftar profil hewan peliharaan yang tersedia untuk diadopsi.</p>
                     </div>
-                    <!-- Tombol Tambah Hewan -->
-                    <a href="tambah.php" class="bg-[#E07A5F] hover:bg-[#c9674f] text-white px-5 py-3 rounded-xl shadow-lg shadow-[#E07A5F]/30 transition-all flex items-center gap-2 font-semibold text-sm transform hover:-translate-y-0.5">
-                        <i class="fas fa-plus"></i>
-                        <span>Tambah Hewan Baru</span>
-                    </a>
+                    <!-- Tombol Aksi -->
+                    <div class="flex items-center gap-3">
+                        <!-- Tombol Cetak PDF -->
+                        <a href="cetak_hewan.php" target="_blank" class="bg-[#1E3F20] hover:bg-[#142b15] text-white px-5 py-3 rounded-xl shadow-lg shadow-[#1E3F20]/30 transition-all flex items-center gap-2 font-semibold text-sm transform hover:-translate-y-0.5">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>Cetak PDF</span>
+                        </a>
+                        
+                        <!-- Tombol Tambah Hewan -->
+                        <a href="tambah.php" class="bg-[#E07A5F] hover:bg-[#c9674f] text-white px-5 py-3 rounded-xl shadow-lg shadow-[#E07A5F]/30 transition-all flex items-center gap-2 font-semibold text-sm transform hover:-translate-y-0.5">
+                            <i class="fas fa-plus"></i>
+                            <span>Tambah Hewan Baru</span>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Table Card -->
