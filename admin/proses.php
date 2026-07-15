@@ -30,9 +30,9 @@ if (isset($_POST['aksi']) && $_POST['aksi'] == 'tambah') {
         // Validasi Ekstensi
         if (in_array($file_ext, $allowed_ext)) {
             // Validasi Ukuran (Max 2MB)
-            if ($file_size <= 2097152) {
-                // Rename file agar unik menggunakan fungsi time()
-                $new_file_name = time() . '_' . rand(1000, 9999) . '.' . $file_ext;
+            if ($file_size <= 2000000) {
+                // Rename file agar unik menggunakan fungsi uniqid()
+                $new_file_name = uniqid() . '.' . $file_ext;
                 $upload_path = '../assets/uploads/';
                 
                 // Pastikan direktori tujuan ada, jika belum maka buat otomatis
@@ -45,11 +45,11 @@ if (isset($_POST['aksi']) && $_POST['aksi'] == 'tambah') {
                     $foto_name = $new_file_name;
                 }
             } else {
-                echo "<script>alert('Gagal! Ukuran file foto melebihi batas maksimal 2MB.'); window.history.back();</script>";
+                echo "<script>alert('Ukuran gambar terlalu besar! Maksimal ukuran file adalah 2MB.'); window.history.back();</script>";
                 exit;
             }
         } else {
-            echo "<script>alert('Gagal! Ekstensi file tidak valid. Hanya izinkan PNG, JPG, dan JPEG.'); window.history.back();</script>";
+            echo "<script>alert('Format file tidak didukung! Hanya diperbolehkan file JPG, JPEG, dan PNG.'); window.history.back();</script>";
             exit;
         }
     }
@@ -93,8 +93,8 @@ if (isset($_POST['aksi']) && $_POST['aksi'] == 'tambah') {
         $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
         
         if (in_array($file_ext, $allowed_ext)) {
-            if ($file_size <= 2097152) { // Maksimal 2MB
-                $new_file_name = time() . '_' . rand(1000, 9999) . '.' . $file_ext;
+            if ($file_size <= 2000000) { // Maksimal 2MB
+                $new_file_name = uniqid() . '.' . $file_ext;
                 $upload_path = '../assets/uploads/';
                 
                 if (!is_dir($upload_path)) {
@@ -109,11 +109,11 @@ if (isset($_POST['aksi']) && $_POST['aksi'] == 'tambah') {
                     }
                 }
             } else {
-                echo "<script>alert('Gagal! Ukuran file foto melebihi batas maksimal 2MB.'); window.history.back();</script>";
+                echo "<script>alert('Ukuran gambar terlalu besar! Maksimal ukuran file adalah 2MB.'); window.history.back();</script>";
                 exit;
             }
         } else {
-            echo "<script>alert('Gagal! Ekstensi file tidak valid. Hanya izinkan PNG, JPG, dan JPEG.'); window.history.back();</script>";
+            echo "<script>alert('Format file tidak didukung! Hanya diperbolehkan file JPG, JPEG, dan PNG.'); window.history.back();</script>";
             exit;
         }
     }
